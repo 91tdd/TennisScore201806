@@ -9,6 +9,7 @@ namespace TennisScore
 
         private Dictionary<int, string> _scoreLookup = new Dictionary<int, string>
         {
+            {0, "Love"},
             {1, "Fifteen"},
             {2, "Thirty"},
             {3, "Forty"},
@@ -23,21 +24,10 @@ namespace TennisScore
         {
             var game = this._repo.GetGame(gameId);
 
-            if (game.SecondPlayerScore == 2)
+            if (game.FirstPlayerScore != game.SecondPlayerScore)
             {
-                return "Love Thirty";
+                return _scoreLookup[game.FirstPlayerScore] + " " + _scoreLookup[game.SecondPlayerScore];
             }
-
-            if (game.SecondPlayerScore == 1)
-            {
-                return "Love Fifteen";
-            }
-
-            if (game.FirstPlayerScore > 0)
-            {
-                return _scoreLookup[game.FirstPlayerScore] + " Love";
-            }
-
 
             return "Love All";
         }
