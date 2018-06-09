@@ -11,6 +11,7 @@ namespace TennisScore
         {
             {1, "Fifteen"},
             {2, "Thirty"},
+            {3, "Forty"},
         };
 
         public TennisGame(IRepository<Game> repo)
@@ -21,6 +22,16 @@ namespace TennisScore
         public string ScoreResult(int gameId)
         {
             var game = this._repo.GetGame(gameId);
+
+            if (game.SecondPlayerScore == 2)
+            {
+                return "Love Thirty";
+            }
+
+            if (game.SecondPlayerScore == 1)
+            {
+                return "Love Fifteen";
+            }
 
             if (game.FirstPlayerScore > 0)
             {
