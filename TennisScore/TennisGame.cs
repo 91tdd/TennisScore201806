@@ -24,7 +24,7 @@ namespace TennisScore
         {
             var game = this._repo.GetGame(gameId);
 
-            if (game.FirstPlayerScore != game.SecondPlayerScore)
+            if (game.IsScoreDifferent())
             {
                 return _scoreLookup[game.FirstPlayerScore] + " " + _scoreLookup[game.SecondPlayerScore];
             }
