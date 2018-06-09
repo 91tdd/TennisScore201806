@@ -9,6 +9,7 @@ namespace TennisScore
         private IRepository<Game> _repository = Substitute.For<IRepository<Game>>();
         private TennisGame _tennisGame;
         private const int AnyGameId = 1;
+        private const string FirstPlayerName = "Alex";
 
 
         [TestInitialize]
@@ -80,6 +81,13 @@ namespace TennisScore
             ScoreResultShouldBe("Deuce");
         }
 
+        [TestMethod]
+        public void FirstPlayer_Adv()
+        {
+            GivenGame(firstPlayerScore: 4, secondPlayerScore: 3);
+            ScoreResultShouldBe(FirstPlayerName + " Adv");
+        }
+
         private void ScoreResultShouldBe(string expected)
         {
             Assert.AreEqual(expected, _tennisGame.ScoreResult(AnyGameId));
@@ -91,7 +99,8 @@ namespace TennisScore
             {
                 Id = AnyGameId,
                 FirstPlayerScore = firstPlayerScore,
-                SecondPlayerScore = secondPlayerScore
+                SecondPlayerScore = secondPlayerScore,
+                FirstPlayerName = FirstPlayerName
             });
         }
     }

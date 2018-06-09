@@ -26,6 +26,14 @@ namespace TennisScore
 
             if (game.IsScoreDifferent())
             {
+                if (game.FirstPlayerScore > 3)
+                {
+                    if (game.FirstPlayerScore - game.SecondPlayerScore == 1)
+                    {
+                        return game.FirstPlayerName + " Adv";
+                    }
+                }
+
                 return _scoreLookup[game.FirstPlayerScore] + " " + _scoreLookup[game.SecondPlayerScore];
             }
 
