@@ -90,6 +90,13 @@ namespace TennisScore
         }
 
         [TestMethod]
+        public void FirstPlayer_Win()
+        {
+            GivenGame(firstPlayerScore: 5, secondPlayerScore: 3);
+            ScoreResultShouldBe(FirstPlayerName + " Win");
+        }
+
+        [TestMethod]
         public void SecondPlayer_Adv()
         {
             GivenGame(firstPlayerScore: 3, secondPlayerScore: 4);

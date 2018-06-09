@@ -32,6 +32,8 @@ namespace TennisScore
                     {
                         return game.AdvPlayer() + " Adv";
                     }
+
+                    return game.AdvPlayer() + " Win";
                 }
 
                 return _scoreLookup[game.FirstPlayerScore] + " " + _scoreLookup[game.SecondPlayerScore];
