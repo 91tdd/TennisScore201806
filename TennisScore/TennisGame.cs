@@ -29,7 +29,7 @@ namespace TennisScore
                 return _scoreLookup[game.FirstPlayerScore] + " " + _scoreLookup[game.SecondPlayerScore];
             }
 
-            if (game.FirstPlayerScore >= 3)
+            if (game.IsDeuce())
             {
                 return "Deuce";
             }

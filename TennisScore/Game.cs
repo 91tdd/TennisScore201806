@@ -10,5 +10,11 @@
         {
             return FirstPlayerScore != SecondPlayerScore;
         }
+
+        public bool IsDeuce()
+        {
+            var isSameScore = FirstPlayerScore == SecondPlayerScore;
+            return FirstPlayerScore >= 3 && isSameScore;
+        }
     }
 }
