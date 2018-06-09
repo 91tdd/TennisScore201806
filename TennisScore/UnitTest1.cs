@@ -10,6 +10,7 @@ namespace TennisScore
         private TennisGame _tennisGame;
         private const int AnyGameId = 1;
         private const string FirstPlayerName = "Alex";
+        private const string SecondPlayerName = "Sam";
 
 
         [TestInitialize]
@@ -88,6 +89,13 @@ namespace TennisScore
             ScoreResultShouldBe(FirstPlayerName + " Adv");
         }
 
+        [TestMethod]
+        public void SecondPlayer_Adv()
+        {
+            GivenGame(firstPlayerScore: 3, secondPlayerScore: 4);
+            ScoreResultShouldBe(SecondPlayerName + " Adv");
+        }
+
         private void ScoreResultShouldBe(string expected)
         {
             Assert.AreEqual(expected, _tennisGame.ScoreResult(AnyGameId));
@@ -100,7 +108,8 @@ namespace TennisScore
                 Id = AnyGameId,
                 FirstPlayerScore = firstPlayerScore,
                 SecondPlayerScore = secondPlayerScore,
-                FirstPlayerName = FirstPlayerName
+                FirstPlayerName = FirstPlayerName,
+                SecondPlayerName = SecondPlayerName
             });
         }
     }

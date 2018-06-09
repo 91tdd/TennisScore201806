@@ -26,11 +26,15 @@ namespace TennisScore
 
             if (game.IsScoreDifferent())
             {
-                if (game.FirstPlayerScore > 3)
+                if (game.FirstPlayerScore > 3 || game.SecondPlayerScore > 3)
                 {
-                    if (game.FirstPlayerScore - game.SecondPlayerScore == 1)
+                    if (Math.Abs(game.FirstPlayerScore - game.SecondPlayerScore) == 1)
                     {
-                        return game.FirstPlayerName + " Adv";
+                        var advPlayer = game.FirstPlayerScore > game.SecondPlayerScore
+                            ? game.FirstPlayerName
+                            : game.SecondPlayerName;
+
+                        return advPlayer + " Adv";
                     }
                 }
 
