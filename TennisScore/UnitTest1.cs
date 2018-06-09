@@ -66,6 +66,13 @@ namespace TennisScore
             ScoreResultShouldBe("Fifteen All");
         }
 
+        [TestMethod]
+        public void Thirty_All()
+        {
+            GivenGame(firstPlayerScore: 2, secondPlayerScore: 2);
+            ScoreResultShouldBe("Thirty All");
+        }
+
         private void ScoreResultShouldBe(string expected)
         {
             Assert.AreEqual(expected, _tennisGame.ScoreResult(AnyGameId));

@@ -29,6 +29,11 @@ namespace TennisScore
                 return _scoreLookup[game.FirstPlayerScore] + " " + _scoreLookup[game.SecondPlayerScore];
             }
 
+            if (game.FirstPlayerScore == 2)
+            {
+                return "Thirty All";
+            }
+
             if (game.FirstPlayerScore == 1)
             {
                 return "Fifteen All";
